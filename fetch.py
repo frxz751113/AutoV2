@@ -1079,7 +1079,7 @@ def main():
     print(f"共有 {len(merged)-unsupports} 个正常节点，{len(unknown)} 个无法解析的节点，共",
             len(merged)+len(unknown),f"个。{unsupports} 个节点不被 V2Ray 支持。")
 
-    with open("list_raw.txt", 'w', encoding="utf-8") as f:
+    with open("listraw.txt", 'w', encoding="utf-8") as f:
         f.write(txt)
     with open("list.txt", 'w', encoding="utf-8") as f:
         f.write(b64encodes(txt))
@@ -1274,3 +1274,204 @@ if __name__ == '__main__':
     AUTOURL: List[AUTOFUNTYPE]
     AUTOFETCH: List[AUTOFUNTYPE]
     main()
+import re
+import socket
+import os
+import platform
+import subprocess
+from contextlib import closing
+from tqdm import tqdm  # 用于显示进度条
+
+def ping(host, timeout=1):
+    """使用系统ping命令快速测试主机可达性"""
+    param = '-n 1 -w {}'.format(timeout * 1000) if platform.system().lower() == 'windows' else '-c 1 -W {}'.format(timeout)
+    command = 'ping {} {}'.format(param, host)
+    # 隐藏ping命令的输出
+    with open(os.devnull, 'w') as devnull:
+        return subprocess.call(command, shell=True, stdout=devnull, stderr=devnull) == 0
+
+def tcping(host, port, timeout=3):
+    """测试TCP端口是否开放"""
+    try:
+        with closing(socket.socket(socket.AF_INET, socket.SOCK_STREAM)) as sock:
+            sock.settimeout(timeout)
+            return sock.connect_ex((host, port)) == 0
+    except (socket.gaierror, socket.error):
+        return False
+
+def process_file(filename):
+    valid_lines = []
+    
+    # 首先读取所有行以确定总行数
+    with open(filename, 'r', encoding='utf-8') as file:
+        all_lines = [line.strip() for line in file.readlines()]
+    
+    # 创建进度条
+    with tqdm(total=len(all_lines), desc="Processing", unit="line") as pbar:
+        for line in all_lines:
+            pbar.update(1)  # 更新进度条
+            
+            if not line:  # 跳过空行
+                continue
+                
+            # 匹配 @ 和 ? 之间的内容
+            match = re.search(r'@([^@\?]+)\?', line)
+            if not match:
+                continue
+                
+            target = match.group(1)
+            # 分离主机和端口
+            parts = target.rsplit(':', 1)
+            host = parts[0]
+            port = int(parts[1]) if len(parts) > 1 else 80  # 默认80端口
+            
+            # 显示当前测试的地址
+            pbar.set_postfix_str(f"Testing: {host}:{port}")
+            
+            # 优化：先进行快速Ping测试
+            if not ping(host):
+                continue  # Ping不通则跳过TCPing测试
+                
+            if tcping(host, port):
+                valid_lines.append(line)
+    
+    # 写回原文件（只保留测试通过的行）
+    with open(filename, 'w', encoding='utf-8') as file:
+        file.write('\n'.join(valid_lines))
+
+if __name__ == "__main__":
+    process_file('listraw.txt')
+import re
+import socket
+import os
+import platform
+import subprocess
+from contextlib import closing
+from tqdm import tqdm  # 用于显示进度条
+
+def ping(host, timeout=1):
+    """使用系统ping命令快速测试主机可达性"""
+    param = '-n 1 -w {}'.format(timeout * 1000) if platform.system().lower() == 'windows' else '-c 1 -W {}'.format(timeout)
+    command = 'ping {} {}'.format(param, host)
+    # 隐藏ping命令的输出
+    with open(os.devnull, 'w') as devnull:
+        return subprocess.call(command, shell=True, stdout=devnull, stderr=devnull) == 0
+
+def tcping(host, port, timeout=3):
+    """测试TCP端口是否开放"""
+    try:
+        with closing(socket.socket(socket.AF_INET, socket.SOCK_STREAM)) as sock:
+            sock.settimeout(timeout)
+            return sock.connect_ex((host, port)) == 0
+    except (socket.gaierror, socket.error):
+        return False
+
+def process_file(filename):
+    valid_lines = []
+    
+    # 首先读取所有行以确定总行数
+    with open(filename, 'r', encoding='utf-8') as file:
+        all_lines = [line.strip() for line in file.readlines()]
+    
+    # 创建进度条
+    with tqdm(total=len(all_lines), desc="Processing", unit="line") as pbar:
+        for line in all_lines:
+            pbar.update(1)  # 更新进度条
+            
+            if not line:  # 跳过空行
+                continue
+                
+            # 匹配 @ 和 ? 之间的内容
+            match = re.search(r'@([^@\?]+)\?', line)
+            if not match:
+                continue
+                
+            target = match.group(1)
+            # 分离主机和端口
+            parts = target.rsplit(':', 1)
+            host = parts[0]
+            port = int(parts[1]) if len(parts) > 1 else 80  # 默认80端口
+            
+            # 显示当前测试的地址
+            pbar.set_postfix_str(f"Testing: {host}:{port}")
+            
+            # 优化：先进行快速Ping测试
+            if not ping(host):
+                continue  # Ping不通则跳过TCPing测试
+                
+            if tcping(host, port):
+                valid_lines.append(line)
+    
+    # 写回原文件（只保留测试通过的行）
+    with open(filename, 'w', encoding='utf-8') as file:
+        file.write('\n'.join(valid_lines))
+
+if __name__ == "__main__":
+    process_file('listraw.txt')
+import re
+import socket
+import os
+import platform
+import subprocess
+from contextlib import closing
+from tqdm import tqdm  # 用于显示进度条
+
+def ping(host, timeout=1):
+    """使用系统ping命令快速测试主机可达性"""
+    param = '-n 1 -w {}'.format(timeout * 1000) if platform.system().lower() == 'windows' else '-c 1 -W {}'.format(timeout)
+    command = 'ping {} {}'.format(param, host)
+    # 隐藏ping命令的输出
+    with open(os.devnull, 'w') as devnull:
+        return subprocess.call(command, shell=True, stdout=devnull, stderr=devnull) == 0
+
+def tcping(host, port, timeout=3):
+    """测试TCP端口是否开放"""
+    try:
+        with closing(socket.socket(socket.AF_INET, socket.SOCK_STREAM)) as sock:
+            sock.settimeout(timeout)
+            return sock.connect_ex((host, port)) == 0
+    except (socket.gaierror, socket.error):
+        return False
+
+def process_file(filename):
+    valid_lines = []
+    
+    # 首先读取所有行以确定总行数
+    with open(filename, 'r', encoding='utf-8') as file:
+        all_lines = [line.strip() for line in file.readlines()]
+    
+    # 创建进度条
+    with tqdm(total=len(all_lines), desc="Processing", unit="line") as pbar:
+        for line in all_lines:
+            pbar.update(1)  # 更新进度条
+            
+            if not line:  # 跳过空行
+                continue
+                
+            # 匹配 @ 和 ? 之间的内容
+            match = re.search(r'@([^@\?]+)\?', line)
+            if not match:
+                continue
+                
+            target = match.group(1)
+            # 分离主机和端口
+            parts = target.rsplit(':', 1)
+            host = parts[0]
+            port = int(parts[1]) if len(parts) > 1 else 80  # 默认80端口
+            
+            # 显示当前测试的地址
+            pbar.set_postfix_str(f"Testing: {host}:{port}")
+            
+            # 优化：先进行快速Ping测试
+            if not ping(host):
+                continue  # Ping不通则跳过TCPing测试
+                
+            if tcping(host, port):
+                valid_lines.append(line)
+    
+    # 写回原文件（只保留测试通过的行）
+    with open(filename, 'w', encoding='utf-8') as file:
+        file.write('\n'.join(valid_lines))
+
+if __name__ == "__main__":
+    process_file('listraw.txt')
