@@ -65,7 +65,6 @@ vless://583ceab3-4022-4553-9158-9bedc625ad4e@5.10.214.20:8880?allowInsecure=0&sn
 vless://9f3c4ab7-ea26-4d96-91a9-c85ff64ad9a0@188.244.122.13:8880?allowInsecure=0&sni=Telegram-channel-WangCai2&type=ws&host=c.82313369.xyz&path=/Telegram🇨🇳 @WangCai2 /?ed=2560fp=chrome#14%7CDE_speednode_0044
 vless://9f3c4ab7-ea26-4d96-91a9-c85ff64ad9a0@5.10.215.13:8880?allowInsecure=0&sni=Telegram-channel-WangCai2&type=ws&host=c.82313369.xyz&path=/Telegram🇨🇳 @WangCai2 /?ed=2560fp=chrome#14%7CDE_speednode_0045
 vless://9f3c4ab7-ea26-4d96-91a9-c85ff64ad9a0@5.10.214.13:8880?allowInsecure=0&sni=Telegram-channel-WangCai2&type=ws&host=c.82313369.xyz&path=/Telegram🇨🇳 @WangCai2 /?ed=2560fp=chrome#14%7CDE_speednode_0046
-vless://9da21010-6025-430a-9ce9-6096673d86d1@91.99.183.196:1360?allowInsecure=0&sni=zula.ir#14%7CDE_speednode_0047
 vless://651de6cb-df22-45cd-8842-438fdbef87fb@45.145.43.219:7022?allowInsecure=0&sni=refersion.com&fp=chrome&security=tls#14%7CDE_speednode_0048
 vless://9f3c4ab7-ea26-4d96-91a9-c85ff64ad9a0@45.80.108.13:8880?allowInsecure=0&sni=Telegram-channel-WangCai2&type=ws&host=c.82313369.xyz&path=/Telegram🇨🇳 @WangCai2 /?ed=2560fp=chrome#14%7CEE_speednode_0049
 vless://9f3c4ab7-ea26-4d96-91a9-c85ff64ad9a0@185.238.228.13:8880?allowInsecure=0&sni=Telegram-channel-WangCai2&type=ws&host=c.82313369.xyz&path=/Telegram🇨🇳 @WangCai2 /?ed=2560fp=chrome#14%7CES_speednode_0050
@@ -96,8 +95,6 @@ vless://9f3c4ab7-ea26-4d96-91a9-c85ff64ad9a0@45.192.223.13:8880?allowInsecure=0&
 vless://d3f3fd0b-7b5c-4070-d5dc-61f96641b507@185.201.49.94:58089?allowInsecure=0&sni=myket.ir#14%7CIR_speednode_0083
 vless://77371595-b7aa-472a-9d61-e9731861af07@300.shecanmarket.com:8443?allowInsecure=0&sni=head.shecanMarket.com#14%7CIR_speednode_0084
 vless://c058fe92-58fd-18fe-2ce0-53eebbeb2ceb@185.201.49.30:58088?allowInsecure=0&sni=myket.ir#14%7CIR_speednode_0085
-vless://0d1cb112-006f-4eaa-89d1-15da714d12e1@yldl.ir:2096?allowInsecure=0&sni=gharar.ir#14%7CIR_speednode_0086
-vless://fd0cdd44-2361-11f0-9970-45e1d80c4039@62.60.233.250:443?allowInsecure=1&sni=images.apple.com&flow=xtls-rprx-vision-udp443&fp=chrome&security=tls#14%7CIR_speednode_0087
 vless://9f3c4ab7-ea26-4d96-91a9-c85ff64ad9a0@62.72.166.13:8880?allowInsecure=0&sni=Telegram-channel-WangCai2&type=ws&host=c.82313369.xyz&path=/Telegram🇨🇳 @WangCai2 /?ed=2560fp=chrome#14%7CJO_speednode_0088
 vless://9f3c4ab7-ea26-4d96-91a9-c85ff64ad9a0@103.116.7.13:8880?allowInsecure=0&sni=Telegram-channel-WangCai2&type=ws&host=c.82313369.xyz&path=/Telegram🇨🇳 @WangCai2 /?ed=2560fp=chrome#14%7CJP_speednode_0089
 vless://9f3c4ab7-ea26-4d96-91a9-c85ff64ad9a0@185.176.26.13:8880?allowInsecure=0&sni=Telegram-channel-WangCai2&type=ws&host=c.82313369.xyz&path=/Telegram🇨🇳 @WangCai2 /?ed=2560fp=chrome#14%7CKZ_speednode_0091
@@ -263,5 +260,5 @@ vless://9f3c4ab7-ea26-4d96-91a9-c85ff64ad9a0@102.177.189.13:8880?allowInsecure=0
 vless://9f3c4ab7-ea26-4d96-91a9-c85ff64ad9a0@102.177.176.13:8880?allowInsecure=0&sni=Telegram-channel-WangCai2&type=ws&host=c.82313369.xyz&path=/Telegram🇨🇳 @WangCai2 /?ed=2560fp=chrome#14%7CZA_speednode_0257
 vless://9f3c4ab7-ea26-4d96-91a9-c85ff64ad9a0@102.132.188.13:8880?allowInsecure=0&sni=Telegram-channel-WangCai2&type=ws&host=c.82313369.xyz&path=/Telegram🇨🇳 @WangCai2 /?ed=2560fp=chrome#14%7CZA_speednode_0258
 vless://9f3c4ab7-ea26-4d96-91a9-c85ff64ad9a0@102.177.176.13:8880?allowInsecure=0&sni=Telegram-channel-WangCai2&type=ws&host=c.82313369.xyz&path=/TelegramU0001F1E8U0001F1F3 @WangCai2 /?ed=2560fp=chrome#14%7CZA_speednode_0259
-ss://YWVzLTI1Ni1nY206MWFkOTBhNDIyMDk2@43.226.17.8:636?plugin=v2ray-plugin%3Bmode%3Dwebsocket%3Bmux%3D8%3Bpath%3D%2Fjwuctcuhriiw%3Bhost%3Dkr6v1.dashengjs.net%3Btls#%E6%97%A5%E6%9C%AC2%7C%40ripaojiedian
 ss://YWVzLTI1Ni1nY206ZjkxNzg4OGM2ZjM5@121.127.231.200:636?plugin=v2ray-plugin%3Bmode%3Dwebsocket%3Bmux%3D8%3Bpath%3D%2Frxoasyex%3Bhost%3Dhkxwv1-5.dsjsapi.com%3Btls#%E9%A6%99%E6%B8%AF2%7C%40ripaojiedian
+ss://YWVzLTI1Ni1nY206MWFkOTBhNDIyMDk2@43.226.17.8:636?plugin=v2ray-plugin%3Bmode%3Dwebsocket%3Bmux%3D8%3Bpath%3D%2Fjwuctcuhriiw%3Bhost%3Dkr6v1.dashengjs.net%3Btls#%E6%97%A5%E6%9C%AC2%7C%40ripaojiedian
