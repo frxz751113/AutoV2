@@ -1333,3 +1333,121 @@ def process_file(filename):
 
 if __name__ == "__main__":
     process_file('listraw.txt')
+import re
+import socket
+from contextlib import closing
+from tqdm import tqdm  # 导入tqdm库用于进度条
+
+def tcping(host, port, timeout=3):
+    """测试TCP端口是否开放"""
+    try:
+        with closing(socket.socket(socket.AF_INET, socket.SOCK_STREAM)) as sock:
+            sock.settimeout(timeout)
+            return sock.connect_ex((host, port)) == 0
+    except (socket.gaierror, socket.error):
+        return False
+
+def process_file(filename):
+    valid_lines = []
+    
+    # 首先读取所有行以确定总行数
+    with open(filename, 'r', encoding='utf-8') as file:
+        all_lines = [line.strip() for line in file.readlines()]
+    
+    # 创建进度条
+    total_lines = len(all_lines)
+    progress_bar = tqdm(total=total_lines, desc="Processing", unit="line")
+    
+    for line in all_lines:
+        progress_bar.update(1)  # 更新进度条
+        
+        if not line:  # 跳过空行
+            continue
+            
+        # 匹配 @ 和 ? 之间的内容
+        match = re.search(r'@([^@\?]+)\?', line)
+        if not match:
+            continue
+            
+        target = match.group(1)
+        # 分离主机和端口
+        parts = target.rsplit(':', 1)
+        host = parts[0]
+        port = int(parts[1]) if len(parts) > 1 else 80  # 默认80端口
+        
+        # 显示当前测试的地址
+        progress_bar.set_postfix_str(f"Testing: {host}:{port}")
+        
+        if tcping(host, port):
+            valid_lines.append(line)
+    
+    # 关闭进度条
+    progress_bar.close()
+    
+    # 写回原文件（只保留测试通过的行）
+    with open(filename, 'w', encoding='utf-8') as file:
+        file.write('\n'.join(valid_lines))
+    
+    print(f"处理完成！原始行数: {total_lines}, 有效行数: {len(valid_lines)}")
+
+if __name__ == "__main__":
+    process_file('listraw.txt')
+import re
+import socket
+from contextlib import closing
+from tqdm import tqdm  # 导入tqdm库用于进度条
+
+def tcping(host, port, timeout=3):
+    """测试TCP端口是否开放"""
+    try:
+        with closing(socket.socket(socket.AF_INET, socket.SOCK_STREAM)) as sock:
+            sock.settimeout(timeout)
+            return sock.connect_ex((host, port)) == 0
+    except (socket.gaierror, socket.error):
+        return False
+
+def process_file(filename):
+    valid_lines = []
+    
+    # 首先读取所有行以确定总行数
+    with open(filename, 'r', encoding='utf-8') as file:
+        all_lines = [line.strip() for line in file.readlines()]
+    
+    # 创建进度条
+    total_lines = len(all_lines)
+    progress_bar = tqdm(total=total_lines, desc="Processing", unit="line")
+    
+    for line in all_lines:
+        progress_bar.update(1)  # 更新进度条
+        
+        if not line:  # 跳过空行
+            continue
+            
+        # 匹配 @ 和 ? 之间的内容
+        match = re.search(r'@([^@\?]+)\?', line)
+        if not match:
+            continue
+            
+        target = match.group(1)
+        # 分离主机和端口
+        parts = target.rsplit(':', 1)
+        host = parts[0]
+        port = int(parts[1]) if len(parts) > 1 else 80  # 默认80端口
+        
+        # 显示当前测试的地址
+        progress_bar.set_postfix_str(f"Testing: {host}:{port}")
+        
+        if tcping(host, port):
+            valid_lines.append(line)
+    
+    # 关闭进度条
+    progress_bar.close()
+    
+    # 写回原文件（只保留测试通过的行）
+    with open(filename, 'w', encoding='utf-8') as file:
+        file.write('\n'.join(valid_lines))
+    
+    print(f"处理完成！原始行数: {total_lines}, 有效行数: {len(valid_lines)}")
+
+if __name__ == "__main__":
+    process_file('listraw.txt')
